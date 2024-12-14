@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #87CEEB, #E0F4FF);
+  font-family: 'Playfair Display', serif;
+}
+
+canvas {
+  display: block;
+}
+
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FF1493;
+  font-size: 2.5em;
+  text-align: center;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 105, 180, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInOut 8s infinite;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  white-space: nowrap;
+}
+
+.message::before,
+.message::after {
+  content: '❤️';
+  margin: 0 10px;
+  font-size: 0.8em;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { 
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  20%, 80% { 
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
